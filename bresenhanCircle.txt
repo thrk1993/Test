@@ -1,0 +1,54 @@
+/**
+ * @(#)bresenhanCircle.java
+ *
+ *
+ * @author 
+ * @version 1.00 2017/1/24
+ */
+
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.lang.Math;
+
+
+public class bresenhanCircle extends JPanel{
+
+    public void paint(Graphics g) {
+    	g.setColor(Color.blue);
+    	int r=100;int x1=0;int y=r;int d=3-(2*r);int x;
+    	
+    	for(x=x1+1;x<=(r/Math.sqrt(2))+0.5;x++)
+    	{
+    		if(d<0)
+    		{
+    			y=y;
+    			d=d+(4*x)+6;
+    		}
+    		else
+    		{
+    			y=y-1;
+    			d=d+(4*(x-y))+10;
+    		}
+    		g.drawLine(x+100,y+100,x+100,y+100);
+    		g.drawLine(y+100,x+100,y+100,x+100);
+    		g.drawLine(-y+100,x+100,-y+100,x+100);
+    		g.drawLine(-x+100,y+100,-x+100,y+100);
+    		g.drawLine(-x+100,-y+100,-x+100,-y+100);
+    		g.drawLine(-y+100,-x+100,-y+100,-x+100);
+    		g.drawLine(y+100,-x+100,y+100,-x+100);
+    		g.drawLine(x+100,-y+100,x+100,-y+100);
+    	}
+    
+    }
+    public static void main (String[] args) {
+    	JFrame f=new JFrame("Prf.G.Bharath");
+    	f.setVisible(true);
+    	f.setSize(800,600);
+    	f.setBackground(Color.black);
+    	f.getContentPane().add(new bresenhanCircle());
+    }
+    
+    
+}
